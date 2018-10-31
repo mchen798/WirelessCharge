@@ -1,0 +1,84 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Blockchain Based Energy Trade for Shared Wireless Chargers}
+\author{Junbo Wang, Chen Qiu, Hongzhi Xiao}
+\begin{document}
+\maketitle
+\section*{abstract}
+\section{Introduction}
+Wireless Charging Technology is getting popular\\
+ Power consuming in smart phone is huge and battery is not good (cannot afford for one day usage)\\
+ Bring an additional battery can be a burden to users\\
+ Shared wireless charging becomes a new trend
+ 
+\section{Problem Define}
+It is hard to record the energy trade transactions since people is moving, and use services in different areas. \\
+Centralized way lose its function 
+\subsection{Process of Blockchain Network}
+The building should include the aggregator. aggregator as a node of the blockchain network.\\
+In this layer, each aggregator could validate transactions and blocks, also they could generate transactions and blocks. \\
+They may have problems:\\
+\begin{itemize}
+	\item The aggregator may very expensive.
+	\item The benefit not enough for the cost.
+\end{itemize}
+
+\subsection{Cloud Services}
+Cloud is provide computing and technical support.
+In this modeling, shop could got cloud computation resource if they don’t want set aggregator inside. But shop need have a sever to storage the blockchain and some data.\\
+The price of the cloud could changed. It depend on the shop’s benefit. Another satisfaction problem between cloud and shop.\\
+The cloud could be a center of the modeling, because the block size could be changed by cloud macro-control. \\
+They may have problems:
+\begin{itemize}
+	\item The cloud should save the blockchain or not?
+	\item If need macro-control, all the node should connect with cloud. Looks like the could will be centralization.
+\end{itemize}
+\subsection{User Satisfaction}
+\begin{itemize}
+	\item Assuming the $S^{t}  \geq S_0$	($S^t$ is user satisfaction, $S_0$ is minimum user satisfaction).
+	\item $E_{ik}$ is actual power consumption. $E'$ is user demand power consumption.
+	\item $E_{ik} = e*t$.
+	\item $e$ means charging efficiency, $t$ means charging time.
+	\item $S^t =min(E_{ik}/E',1)$.
+	\item In this equation, user could get percentage of demand power consumption, if user get full $E'$, the satisfaction became $100\%$.
+	
+\end{itemize}
+
+\subsection{Aggregator Profit}
+The aggregator need maximum profit. $\sum_{u\subset k}^{}a_{ki}$ means how many users connect with the aggregator.
+\begin{eqnarray}
+	P_t &=& \sum_{u\subset k}^{}a_{ki}E_{ik}( \frac{c_0}{e}-CE)-C_{POW} \label{ap} \\
+	a_{ki} &=& \left(\begin{array}{cc}
+	0  k\nleftarrow i \\ 1  k\leftarrow i \end{array}\right)
+\end{eqnarray}
+$C_0$ is charging price per second, $C_E$ means cost of energy per $kW\cdot h$. We suppose 
+\begin{equation}
+	C_{POW}=r_i \cdot t
+\end{equation}
+From the Paper $"POS  VS POW"$, we found the following equations to calculate the cost of $POW (C_{POW})$ .\\
+Target difficulty is $D\subset [1,M]$, the time of mining express by $T_r$. \\
+One miner case, possibility of find a block: $P \{T_r\leq t\}=1-exp(-\frac{rt}{D})$.\\
+Assuming $n$ miners, each miner have $r$ operation per second. 
+$$P \{T=min(T_1,T_2,T_3,T_n\leq T) \}=1-exp(-\frac{t}{D}\sum_{i=1}^{n}r_i )$$
+In this part, we got variable $r_i$, $t$ and $a_{ki}$.
+
+\section{Solutions}
+There are two equations. 
+For the aggregator, it should consider maximum profit.
+$$Max P(t)$$
+For the user, we assume the satisfaction should not less than $S_0$  
+$$S_t\geq S_0$$
+We try to find a group of solutions to get optimal two equations.
+We got 
+\begin{itemize}
+	\item $t \leq threshold1$
+	\item $P_t\geq100\%$
+	\item $Tradeoff_{ri}\leq treshold2$
+\end{itemize}
+
+
+\section{Discussion}
+\section{Conclusion}
+\section{Future Work}
+\end{document}
